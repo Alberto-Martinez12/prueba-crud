@@ -1,0 +1,34 @@
+<div align="center">
+  <h1>GRUPOS A EVALUAR</h1>
+  <table border="1" *ngIf="hayRegistros(); else sin">
+    <tr>
+      <td>ID</td>
+      <td>NOMBRE DEL GRUPO</td>
+      <td>PONDERACION</td>
+      <td>BORRAR</td>
+      <td>SELECCIONAR</td>
+    </tr>
+    <tr *ngFor="let grupo of grupos">
+      <td> {{grupo.idGrupo }} </td>
+      <td> {{gurpo.nombre }} </td>
+      <td> {{grupo.ponderacion }} </td>
+
+      <td> <button (click)="bajaGrupo(grupo.idGrupo)"> Borrar </button> </td>
+      <td> <button (click)="seleccionarGrupo(grupo.idGrupo)"> Seleccionar </button> </td>
+    </tr>
+  </table>
+
+  <ng-template #sin>
+    <p>No hay grupos registrados.</p>
+  </ng-template>
+
+  <div>
+    <p> Nombre: <input type="text" [(ngModel)]="grupo.nombre" /> </p>
+
+    <p>
+      <button (click)="altaGrupo()"> AGREGAR </button>
+      <button (click)="editarGrupo()"> MODIFICAR </button>
+    </p>
+  </div>
+
+</div>
